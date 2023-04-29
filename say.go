@@ -7,9 +7,10 @@ import (
 )
 
 func say(s string, wg *sync.WaitGroup) {
+	defer wg.Done()
+
 	fmt.Println("say:", s)
 	time.Sleep(1 * time.Second)
-	wg.Done()
 }
 
 func main() {
