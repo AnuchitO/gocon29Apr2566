@@ -4,8 +4,10 @@ import "fmt"
 
 func main() {
 	c := make(chan string)
-
-	c <- "Hello"
+	
+	go func() {
+		c <- "Hello"
+	}()
 
 	msg := <-c
 
