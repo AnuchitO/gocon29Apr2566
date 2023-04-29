@@ -6,19 +6,21 @@ import (
 	"time"
 )
 
-func say(msg string) {
+func say(msg string, c chan string) {
 	for i := 0; ; i++ {
 		v := fmt.Sprintf("%s %d", msg, i)
-		fmt.Println("say:", v)
+		c <- v
 		time.Sleep(time.Duration(rand.Intn(1e3)) * time.Millisecond)
 	}
 }
 
 func main() {
 	c := make(chan string)
-	_ = c
 
-	go say("Gopher!")
+	go say("Gopher!", c)
 
-	fmt.Scanln()
+	for {
+		msg := <-c
+		fmt.Println(msg)
+	}
 }
