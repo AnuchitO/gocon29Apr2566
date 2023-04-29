@@ -7,6 +7,7 @@ import (
 
 func main() {
 	// TODO: connect to server on localhost port 8000
+	// net.Dial
 
 	// mustCopy(os.Stdout, conn)
 }
