@@ -1,6 +1,7 @@
 package main
 
 import (
+	"fmt"
 	"io"
 	"net"
 	"time"
@@ -19,6 +20,7 @@ func handleConn(c net.Conn) {
 		if err != nil {
 			return
 		}
+		fmt.Println("accepted")
 		time.Sleep(time.Second)
 	}
 }
