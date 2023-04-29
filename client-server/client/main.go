@@ -8,6 +8,7 @@ import (
 func main() {
 	// TODO: connect to server on localhost port 8000
 
+	// mustCopy(os.Stdout, conn)
 }
 
 // mustCopy - utility function
